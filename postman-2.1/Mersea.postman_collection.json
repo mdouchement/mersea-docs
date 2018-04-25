@@ -1,0 +1,529 @@
+{
+	"info": {
+		"_postman_id": "e63f0f2f-d0ca-460f-b0fd-8b00bfb75602",
+		"name": "Mersea",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"description": "",
+			"item": [
+				{
+					"name": "Registration",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb835dcf-81b6-47da-b11e-51594a78365f",
+								"type": "text/javascript",
+								"exec": [
+									"pm.environment.set('token', pm.response.headers.get('Authorization'));"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "",
+								"value": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\": {\n\t\t\"name\": \"Saitama\",\n\t\t\"email\": \"{{email}}\",\n\t\t\"password\": \"{{password}}\",\n\t\t\"password_confirmation\": \"{{password}}\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "Bearer token is in the response headers"
+					},
+					"response": []
+				},
+				{
+					"name": "Reset password (send mail)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "586c8d17-df05-48e0-a2d5-cf4a3c82877d",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\": {\n\t\t\"email\": \"{{email}}\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{url}}/users/password",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"password"
+							]
+						},
+						"description": "Bearer token is in the response headers"
+					},
+					"response": []
+				},
+				{
+					"name": "Reset password (update)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "586c8d17-df05-48e0-a2d5-cf4a3c82877d",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"user\": {\n\t\t\"reset_password_token\": \"iyxgnf25gR5ygsgXYwLe\",\n\t\t\"password\": \"{{password}}\",\n\t\t\"password_confirmation\": \"{{password}}\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "{{url}}/users/password",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"password"
+							]
+						},
+						"description": "Bearer token is in the response headers"
+					},
+					"response": []
+				},
+				{
+					"name": "Sign-in",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb835dcf-81b6-47da-b11e-51594a78365f",
+								"type": "text/javascript",
+								"exec": [
+									"pm.environment.set('token', pm.response.headers.get('Authorization'));"
+								]
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{email}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/users/sign_in",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"sign_in"
+							]
+						},
+						"description": "Bearer token is in the response headers"
+					},
+					"response": []
+				},
+				{
+					"name": "Me",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/users/me",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Saitama\",\n\t\"current_password\": \"{{password}}\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/users/me",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"current_password\": \"{{password}}\",\n\t\"password\": \"{{password}}\",\n\t\"password_confirmation\": \"{{password}}\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/users/update_password",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"update_password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tracer",
+			"description": "",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Fraganpp\",\n    \"latitude\": 49.8785038779473,\n    \"longitude\": -8.68209809073176,\n    \"tracer\": \"toto\",\n    \"reported_at\": \"2018-03-21\",\n    \"tracer_id\": \"7eed2f6c-a282-4837-8722-ccd0d9477264\",\n    \"quantity\": 1,\n    \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg==\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/tracers",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tracers"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"description": "",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Fraganpp\",\n    \"latitude\": 49.8785038779473,\n    \"longitude\": -8.68209809073176,\n    \"tracer\": \"toto\",\n    \"reported_at\": \"2018-03-21\",\n    \"tracer_id\": \"7eed2f6c-a282-4837-8722-ccd0d9477264\",\n    \"quantity\": 1,\n    \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg==\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/reports",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"reports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Fraganpp\",\n    \"latitude\": 49.8785038779473,\n    \"longitude\": -8.68209809073176,\n    \"tracer\": \"toto\",\n    \"reported_at\": \"2018-03-21\",\n    \"tracer_id\": \"7eed2f6c-a282-4837-8722-ccd0d9477264\",\n    \"quantity\": 1,\n    \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg==\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/reports",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"reports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Fraganpp\",\n    \"latitude\": 49.8785038779473,\n    \"longitude\": -8.68209809073176,\n    \"tracer\": \"toto\",\n    \"reported_at\": \"2018-03-21\",\n    \"tracer_id\": \"7eed2f6c-a282-4837-8722-ccd0d9477264\",\n    \"quantity\": 1,\n    \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg==\"\n}"
+						},
+						"url": {
+							"raw": "{{url}/reports/:id",
+							"host": [
+								"{{url}"
+							],
+							"path": [
+								"reports",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/reports/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"reports",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Leaderboard",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{url}}/leaderboard",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"leaderboard"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

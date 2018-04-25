@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mersea</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+        hljs.configure({
+            tabReplace: '    ',
+        });
+        hljs.initHighlightingOnLoad();
+    </script>
+    <style>body {
+    position: relative;
+}
+
+h1 {
+    margin-top: 5px;
+}
+
+h1, h2, h3, h4 {
+    color: #2b2b2b;
+}
+
+h2:after {
+    content: ' ';
+}
+
+h5 {
+    font-weight: bold;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    display: none;
+    position: absolute;
+    margin-left: 8px;
+}
+
+h1:hover a, h2:hover a, h3:hover a, h4:hover a, h5:hover a, h6:hover a {
+    color: #a5a5a5;
+    display: initial;
+}
+
+.nav.nav-tabs > li > a {
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.tab-content {
+    padding-top: 8px;
+}
+
+.table {
+    margin-bottom: 8px;
+}
+
+pre {
+    border-radius: 0px;
+    border: none;
+}
+
+pre code {
+    margin: -9.5px;
+}
+
+.request {
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+.response-text-sample {
+    padding: 0px !important;
+}
+
+.response-text-sample pre {
+    margin-bottom: 0px;
+}
+
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 250px;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #2b2b2b;
+    padding-top: 20px;
+}
+
+#sidebar-wrapper ul {
+    width: 250px;
+}
+
+#sidebar-wrapper ul li {
+    margin-right: 10px;
+}
+
+#sidebar-wrapper ul li a:hover {
+    background: inherit;
+    text-decoration: none;
+}
+
+#sidebar-wrapper ul li a {
+    display: block;
+    color: #ECF0F1;
+    padding: 6px 15px;
+}
+
+#sidebar-wrapper ul li ul {
+    padding-left: 25px;
+}
+
+#sidebar-wrapper ul li ul li a {
+    padding: 1px 0px;
+}
+
+#sidebar-wrapper ul li a:hover,
+#sidebar-wrapper ul li a:focus {
+    color: #e0c46c;
+    border-right: solid 1px #e0c46c;
+}
+
+#sidebar-wrapper ul li.active > a {
+    color: #e0c46c;
+    border-right: solid 3px #e0c46c;
+}
+
+#sidebar-wrapper ul li:not(.active) ul {
+    display: none;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px 15px 15px 250px;
+}
+</style>
+</head>
+<body data-spy="scroll" data-target=".scrollspy">
+<div id="sidebar-wrapper">
+    <div class="scrollspy">
+    <ul id="main-menu" data-spy="affix" class="nav">
+        <li>
+            <a href="#doc-general-notes">General notes</a>
+        </li>
+        
+        <li>
+            <a href="#doc-api-detail">API detail</a>
+        </li>
+        
+        <li>
+            <a href="#request-leaderboard">Leaderboard</a>
+        </li>
+        
+        
+        
+        <li>
+            <a href="#folder-report">Report</a>
+            <ul>
+                
+                <li>
+                    <a href="#request-report-create">Create</a>
+                </li>
+                
+                <li>
+                    <a href="#request-report-list">List</a>
+                </li>
+                
+                <li>
+                    <a href="#request-report-show">Show</a>
+                </li>
+                
+                <li>
+                    <a href="#request-report-show-copy">Show Copy</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a href="#folder-tracer">Tracer</a>
+            <ul>
+                
+                <li>
+                    <a href="#request-tracer-list">List</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+        
+        <li>
+            <a href="#folder-user">User</a>
+            <ul>
+                
+                <li>
+                    <a href="#request-user-registration">Registration</a>
+                </li>
+                
+                <li>
+                    <a href="#request-user-reset-password-send-mail">Reset password (send mail)</a>
+                </li>
+                
+                <li>
+                    <a href="#request-user-reset-password-update">Reset password (update)</a>
+                </li>
+                
+                <li>
+                    <a href="#request-user-sign-in">Sign-in</a>
+                </li>
+                
+                <li>
+                    <a href="#request-user-me">Me</a>
+                </li>
+                
+                <li>
+                    <a href="#request-user-update">update</a>
+                </li>
+                
+                <li>
+                    <a href="#request-user-update-password">Update Password</a>
+                </li>
+                
+            </ul>
+        </li>
+        
+    </ul>
+</div>
+
+</div>
+<div id="page-content-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Mersea</h1>
+
+                <h2 id="doc-general-notes">
+                    General notes
+                    <a href="#doc-general-notes"><i class="glyphicon glyphicon-link"></i></a>
+                </h2>
+
+                
+
+                
+
+                <h2 id="doc-api-detail">
+                    API detail
+                    <a href="#doc-api-detail"><i class="glyphicon glyphicon-link"></i></a>
+                </h2>
+
+                
+                
+                <div class="request">
+
+                    <h3 id="request-leaderboard">
+                        Leaderboard
+                        <a href="#request-leaderboard"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-leaderboard-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-leaderboard-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-leaderboard-example-curl">
+                                <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Accept: application/json" "http://localhost:3000/leaderboard"</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-leaderboard-example-http">
+                                <pre><code class="hljs http">GET /leaderboard HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+Accept: application/json</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                    <hr>
+                </div>
+                
+
+
+                
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-report">
+                        Report
+                        <a href="#folder-report"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-report-create">
+                            Create
+                            <a href="#request-report-create"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div></div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-report-create-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-report-create-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-report-create-example-curl">
+                                    <pre><code class="hljs curl">curl -X POST -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ" -d '{
+    "name": "Fraganpp",
+    "latitude": 49.8785038779473,
+    "longitude": -8.68209809073176,
+    "tracer": "toto",
+    "reported_at": "2018-03-21",
+    "tracer_id": "7eed2f6c-a282-4837-8722-ccd0d9477264",
+    "quantity": 1,
+    "photo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg=="
+}' "http://localhost:3000/reports"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-report-create-example-http">
+                                    <pre><code class="hljs http">POST /reports HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ
+
+{
+    "name": "Fraganpp",
+    "latitude": 49.8785038779473,
+    "longitude": -8.68209809073176,
+    "tracer": "toto",
+    "reported_at": "2018-03-21",
+    "tracer_id": "7eed2f6c-a282-4837-8722-ccd0d9477264",
+    "quantity": 1,
+    "photo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg=="
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-report-list">
+                            List
+                            <a href="#request-report-list"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div></div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-report-list-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-report-list-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-report-list-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ" "http://localhost:3000/reports"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-report-list-example-http">
+                                    <pre><code class="hljs http">GET /reports HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-report-show">
+                            Show
+                            <a href="#request-report-show"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div></div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-report-show-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-report-show-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-report-show-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ" "{{url}/reports/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-report-show-example-http">
+                                    <pre><code class="hljs http">GET %7B%7Burl%7D/reports/:id HTTP/1.1
+Host: 
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-report-show-copy">
+                            Show Copy
+                            <a href="#request-report-show-copy"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div></div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-report-show-copy-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-report-show-copy-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-report-show-copy-example-curl">
+                                    <pre><code class="hljs curl">curl -X DELETE -H "Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW" -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ" "http://localhost:3000/reports/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-report-show-copy-example-http">
+                                    <pre><code class="hljs http">DELETE /reports/:id HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+
+                </div>
+                
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-tracer">
+                        Tracer
+                        <a href="#folder-tracer"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-tracer-list">
+                            List
+                            <a href="#request-tracer-list"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div></div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-tracer-list-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-tracer-list-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-tracer-list-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ" "http://localhost:3000/tracers"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-tracer-list-example-http">
+                                    <pre><code class="hljs http">GET /tracers HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+
+                </div>
+                
+                
+                <div class="endpoints-group">
+                    <h3 id="folder-user">
+                        User
+                        <a href="#folder-user"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-user-registration">
+                            Registration
+                            <a href="#request-user-registration"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Bearer token is in the response headers</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-user-registration-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-user-registration-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-user-registration-example-curl">
+                                    <pre><code class="hljs curl">curl -X POST -H "Content-Type: application/json" -d '{
+	"user": {
+		"name": "Saitama",
+		"email": "a@a.lan",
+		"password": "12345678",
+		"password_confirmation": "12345678"
+	}
+}' "http://localhost:3000/users"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-user-registration-example-http">
+                                    <pre><code class="hljs http">POST /users HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+
+{
+	"user": {
+		"name": "Saitama",
+		"email": "a@a.lan",
+		"password": "12345678",
+		"password_confirmation": "12345678"
+	}
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-user-reset-password-send-mail">
+                            Reset password (send mail)
+                            <a href="#request-user-reset-password-send-mail"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Bearer token is in the response headers</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-user-reset-password-send-mail-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-user-reset-password-send-mail-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-user-reset-password-send-mail-example-curl">
+                                    <pre><code class="hljs curl">curl -X POST -H "Content-Type: application/json" -H "Accept: application/json" -d '{
+	"user": {
+		"email": "a@a.lan"
+	}
+}' "http://localhost:3000/users/password"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-user-reset-password-send-mail-example-http">
+                                    <pre><code class="hljs http">POST /users/password HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+Accept: application/json
+
+{
+	"user": {
+		"email": "a@a.lan"
+	}
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-user-reset-password-update">
+                            Reset password (update)
+                            <a href="#request-user-reset-password-update"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Bearer token is in the response headers</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-user-reset-password-update-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-user-reset-password-update-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-user-reset-password-update-example-curl">
+                                    <pre><code class="hljs curl">curl -X PATCH -H "Content-Type: application/json" -H "Accept: application/json" -d '{
+	"user": {
+		"reset_password_token": "iyxgnf25gR5ygsgXYwLe",
+		"password": "12345678",
+		"password_confirmation": "12345678"
+	}
+}' "http://localhost:3000/users/password"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-user-reset-password-update-example-http">
+                                    <pre><code class="hljs http">PATCH /users/password HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+Accept: application/json
+
+{
+	"user": {
+		"reset_password_token": "iyxgnf25gR5ygsgXYwLe",
+		"password": "12345678",
+		"password_confirmation": "12345678"
+	}
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-user-sign-in">
+                            Sign-in
+                            <a href="#request-user-sign-in"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>Bearer token is in the response headers</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-user-sign-in-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-user-sign-in-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-user-sign-in-example-curl">
+                                    <pre><code class="hljs curl">curl -X POST -H "Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW" -H "Content-Type: application/x-www-form-urlencoded" "http://localhost:3000/users/sign_in"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-user-sign-in-example-http">
+                                    <pre><code class="hljs http">POST /users/sign_in HTTP/1.1
+Host: localhost:3000
+Content-Type: application/x-www-form-urlencoded</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-user-me">
+                            Me
+                            <a href="#request-user-me"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div></div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-user-me-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-user-me-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-user-me-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ" -H "Content-Type: application/json" -H "Accept: application/json" "http://localhost:3000/users/me"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-user-me-example-http">
+                                    <pre><code class="hljs http">GET /users/me HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ
+Content-Type: application/json
+Accept: application/json</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-user-update">
+                            update
+                            <a href="#request-user-update"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div></div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-user-update-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-user-update-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-user-update-example-curl">
+                                    <pre><code class="hljs curl">curl -X PATCH -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ" -H "Content-Type: application/json" -H "Accept: application/json" -d '{
+	"name": "Saitama",
+	"current_password": "12345678"
+}' "http://localhost:3000/users/me"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-user-update-example-http">
+                                    <pre><code class="hljs http">PATCH /users/me HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ
+Content-Type: application/json
+Accept: application/json
+
+{
+	"name": "Saitama",
+	"current_password": "12345678"
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-user-update-password">
+                            Update Password
+                            <a href="#request-user-update-password"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div></div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-user-update-password-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-user-update-password-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-user-update-password-example-curl">
+                                    <pre><code class="hljs curl">curl -X PATCH -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ" -H "Content-Type: application/json" -H "Accept: application/json" -d '{
+	"current_password": "12345678",
+	"password": "12345678",
+	"password_confirmation": "12345678"
+}' "http://localhost:3000/users/update_password"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-user-update-password-example-http">
+                                    <pre><code class="hljs http">PATCH /users/update_password HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ
+Content-Type: application/json
+Accept: application/json
+
+{
+	"current_password": "12345678",
+	"password": "12345678",
+	"password_confirmation": "12345678"
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("table:not(.table)").addClass('table table-bordered');
+    });
+</script>
+</body>
+</html>

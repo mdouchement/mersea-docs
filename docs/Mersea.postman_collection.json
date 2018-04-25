@@ -1,0 +1,568 @@
+{
+	"id": "e63f0f2f-d0ca-460f-b0fd-8b00bfb75602",
+	"name": "Mersea",
+	"description": "",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [
+		"314116ea-1e5b-4ef3-9ff8-d796fce4a497"
+	],
+	"folders_order": [
+		"6589bbf7-9a26-4ef4-9a3a-8fbd87850aa3",
+		"475f4777-703a-4223-a9f5-3ea04398ed24",
+		"f0766955-df59-4c98-a547-a0ece30426b2"
+	],
+	"folders": [
+		{
+			"id": "f0766955-df59-4c98-a547-a0ece30426b2",
+			"name": "Report",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "e63f0f2f-d0ca-460f-b0fd-8b00bfb75602",
+			"folder": null,
+			"order": [
+				"fd56d93a-229e-4475-b870-47a66372b942",
+				"ca4c6765-4a32-4099-9dec-2a38946a3316",
+				"fbcade66-0d1e-40a0-bc47-551e9afc5287",
+				"01bc9369-1335-4dfc-b87d-84939c5b6e06"
+			],
+			"folders_order": []
+		},
+		{
+			"id": "475f4777-703a-4223-a9f5-3ea04398ed24",
+			"name": "Tracer",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "e63f0f2f-d0ca-460f-b0fd-8b00bfb75602",
+			"folder": null,
+			"order": [
+				"7b8aea73-f52f-43b3-9040-e02a06b597a6"
+			],
+			"folders_order": []
+		},
+		{
+			"id": "6589bbf7-9a26-4ef4-9a3a-8fbd87850aa3",
+			"name": "User",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "e63f0f2f-d0ca-460f-b0fd-8b00bfb75602",
+			"folder": null,
+			"order": [
+				"83822943-096b-49b6-babe-5690f80bacb8",
+				"db155e93-ecd8-4c20-a09a-58e4c534c27f",
+				"440662e9-cf73-4c42-83fc-b012546ccd7a",
+				"cf0f0778-7713-40c6-a628-93bf78e35f8a",
+				"bd5c3d3b-ca1a-45fe-876a-4a86fdc73687",
+				"585b5638-d686-499f-b773-7c8e70153150",
+				"d124e69e-3b8b-453c-ad7b-30beb3eef669"
+			],
+			"folders_order": []
+		}
+	],
+	"requests": [
+		{
+			"id": "01bc9369-1335-4dfc-b87d-84939c5b6e06",
+			"name": "Show Copy",
+			"url": "{{url}}/reports/:id",
+			"description": "",
+			"data": [],
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": ""
+				}
+			],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "f0766955-df59-4c98-a547-a0ece30426b2",
+			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: {{token}}\n",
+			"pathVariables": {
+				"id": ""
+			}
+		},
+		{
+			"id": "314116ea-1e5b-4ef3-9ff8-d796fce4a497",
+			"name": "Leaderboard",
+			"url": "{{url}}/leaderboard",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "440662e9-cf73-4c42-83fc-b012546ccd7a",
+			"name": "Reset password (update)",
+			"url": "{{url}}/users/password",
+			"description": "Bearer token is in the response headers",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "PATCH",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": {
+				"type": "noauth"
+			},
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "586c8d17-df05-48e0-a2d5-cf4a3c82877d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"folder": "6589bbf7-9a26-4ef4-9a3a-8fbd87850aa3",
+			"rawModeData": "{\n\t\"user\": {\n\t\t\"reset_password_token\": \"iyxgnf25gR5ygsgXYwLe\",\n\t\t\"password\": \"{{password}}\",\n\t\t\"password_confirmation\": \"{{password}}\"\n\t}\n}",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "585b5638-d686-499f-b773-7c8e70153150",
+			"name": "update",
+			"url": "{{url}}/users/me",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "PATCH",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "6589bbf7-9a26-4ef4-9a3a-8fbd87850aa3",
+			"rawModeData": "{\n\t\"name\": \"Saitama\",\n\t\"current_password\": \"{{password}}\"\n}",
+			"headers": "Authorization: {{token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "7b8aea73-f52f-43b3-9040-e02a06b597a6",
+			"name": "List",
+			"url": "{{url}}/tracers",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "475f4777-703a-4223-a9f5-3ea04398ed24",
+			"rawModeData": "{\n    \"name\": \"Fraganpp\",\n    \"latitude\": 49.8785038779473,\n    \"longitude\": -8.68209809073176,\n    \"tracer\": \"toto\",\n    \"reported_at\": \"2018-03-21\",\n    \"tracer_id\": \"7eed2f6c-a282-4837-8722-ccd0d9477264\",\n    \"quantity\": 1,\n    \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg==\"\n}",
+			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: {{token}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "83822943-096b-49b6-babe-5690f80bacb8",
+			"name": "Registration",
+			"url": "{{url}}/users",
+			"description": "Bearer token is in the response headers",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "",
+					"value": "",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": {
+				"type": "noauth"
+			},
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fb835dcf-81b6-47da-b11e-51594a78365f",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.set('token', pm.response.headers.get('Authorization'));"
+						]
+					}
+				}
+			],
+			"folder": "6589bbf7-9a26-4ef4-9a3a-8fbd87850aa3",
+			"rawModeData": "{\n\t\"user\": {\n\t\t\"name\": \"Saitama\",\n\t\t\"email\": \"{{email}}\",\n\t\t\"password\": \"{{password}}\",\n\t\t\"password_confirmation\": \"{{password}}\"\n\t}\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "bd5c3d3b-ca1a-45fe-876a-4a86fdc73687",
+			"name": "Me",
+			"url": "{{url}}/users/me",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "6589bbf7-9a26-4ef4-9a3a-8fbd87850aa3",
+			"headers": "Authorization: {{token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "ca4c6765-4a32-4099-9dec-2a38946a3316",
+			"name": "List",
+			"url": "{{url}}/reports",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "f0766955-df59-4c98-a547-a0ece30426b2",
+			"rawModeData": "{\n    \"name\": \"Fraganpp\",\n    \"latitude\": 49.8785038779473,\n    \"longitude\": -8.68209809073176,\n    \"tracer\": \"toto\",\n    \"reported_at\": \"2018-03-21\",\n    \"tracer_id\": \"7eed2f6c-a282-4837-8722-ccd0d9477264\",\n    \"quantity\": 1,\n    \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg==\"\n}",
+			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: {{token}}\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "cf0f0778-7713-40c6-a628-93bf78e35f8a",
+			"name": "Sign-in",
+			"url": "{{url}}/users/sign_in",
+			"description": "Bearer token is in the response headers",
+			"data": [],
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": {
+				"basic": [
+					{
+						"key": "username",
+						"value": "{{email}}",
+						"type": "string"
+					},
+					{
+						"key": "password",
+						"value": "{{password}}",
+						"type": "string"
+					}
+				],
+				"type": "basic"
+			},
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fb835dcf-81b6-47da-b11e-51594a78365f",
+						"type": "text/javascript",
+						"exec": [
+							"pm.environment.set('token', pm.response.headers.get('Authorization'));"
+						]
+					}
+				}
+			],
+			"folder": "6589bbf7-9a26-4ef4-9a3a-8fbd87850aa3",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "d124e69e-3b8b-453c-ad7b-30beb3eef669",
+			"name": "Update Password",
+			"url": "{{url}}/users/update_password",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "PATCH",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "6589bbf7-9a26-4ef4-9a3a-8fbd87850aa3",
+			"rawModeData": "{\n\t\"current_password\": \"{{password}}\",\n\t\"password\": \"{{password}}\",\n\t\"password_confirmation\": \"{{password}}\"\n}",
+			"headers": "Authorization: {{token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "db155e93-ecd8-4c20-a09a-58e4c534c27f",
+			"name": "Reset password (send mail)",
+			"url": "{{url}}/users/password",
+			"description": "Bearer token is in the response headers",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": {
+				"type": "noauth"
+			},
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "586c8d17-df05-48e0-a2d5-cf4a3c82877d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"folder": "6589bbf7-9a26-4ef4-9a3a-8fbd87850aa3",
+			"rawModeData": "{\n\t\"user\": {\n\t\t\"email\": \"{{email}}\"\n\t}\n}",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "fbcade66-0d1e-40a0-bc47-551e9afc5287",
+			"name": "Show",
+			"url": "{{url}/reports/:id",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": ""
+				}
+			],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "f0766955-df59-4c98-a547-a0ece30426b2",
+			"rawModeData": "{\n    \"name\": \"Fraganpp\",\n    \"latitude\": 49.8785038779473,\n    \"longitude\": -8.68209809073176,\n    \"tracer\": \"toto\",\n    \"reported_at\": \"2018-03-21\",\n    \"tracer_id\": \"7eed2f6c-a282-4837-8722-ccd0d9477264\",\n    \"quantity\": 1,\n    \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg==\"\n}",
+			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: {{token}}\n",
+			"pathVariables": {
+				"id": ""
+			}
+		},
+		{
+			"id": "fd56d93a-229e-4475-b870-47a66372b942",
+			"name": "Create",
+			"url": "{{url}}/reports",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "f0766955-df59-4c98-a547-a0ece30426b2",
+			"rawModeData": "{\n    \"name\": \"Fraganpp\",\n    \"latitude\": 49.8785038779473,\n    \"longitude\": -8.68209809073176,\n    \"tracer\": \"toto\",\n    \"reported_at\": \"2018-03-21\",\n    \"tracer_id\": \"7eed2f6c-a282-4837-8722-ccd0d9477264\",\n    \"quantity\": 1,\n    \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg==\"\n}",
+			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: {{token}}\n",
+			"pathVariables": {}
+		}
+	]
+}
