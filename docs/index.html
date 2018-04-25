@@ -159,6 +159,14 @@ pre code {
             <a href="#request-leaderboard">Leaderboard</a>
         </li>
         
+        <li>
+            <a href="#request-list-pages">List Pages</a>
+        </li>
+        
+        <li>
+            <a href="#request-show-a-page">Show a Page</a>
+        </li>
+        
         
         
         <li>
@@ -178,7 +186,7 @@ pre code {
                 </li>
                 
                 <li>
-                    <a href="#request-report-show-copy">Show Copy</a>
+                    <a href="#request-report-delete">Delete</a>
                 </li>
                 
             </ul>
@@ -191,6 +199,10 @@ pre code {
                 
                 <li>
                     <a href="#request-tracer-list">List</a>
+                </li>
+                
+                <li>
+                    <a href="#request-tracer-show">Show</a>
                 </li>
                 
             </ul>
@@ -290,6 +302,72 @@ Accept: application/json</code></pre>
                     <hr>
                 </div>
                 
+                
+                <div class="request">
+
+                    <h3 id="request-list-pages">
+                        List Pages
+                        <a href="#request-list-pages"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-list-pages-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-list-pages-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-list-pages-example-curl">
+                                <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Accept: application/json" "http://localhost:3000/pages"</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-list-pages-example-http">
+                                <pre><code class="hljs http">GET /pages HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+Accept: application/json</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                    <hr>
+                </div>
+                
+                
+                <div class="request">
+
+                    <h3 id="request-show-a-page">
+                        Show a Page
+                        <a href="#request-show-a-page"><i class="glyphicon glyphicon-link"></i></a>
+                    </h3>
+
+                    <div></div>
+
+                    <div>
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#request-show-a-page-example-curl" data-toggle="tab">Curl</a></li>
+                            <li role="presentation"><a href="#request-show-a-page-example-http" data-toggle="tab">HTTP</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="request-show-a-page-example-curl">
+                                <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Accept: application/json" "http://localhost:3000/pages/:id"</code></pre>
+                            </div>
+                            <div class="tab-pane" id="request-show-a-page-example-http">
+                                <pre><code class="hljs http">GET /pages/:id HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+Accept: application/json</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+
+                    <hr>
+                </div>
+                
 
 
                 
@@ -311,7 +389,13 @@ Accept: application/json</code></pre>
                             <a href="#request-report-create"><i class="glyphicon glyphicon-link"></i></a>
                         </h4>
 
-                        <div></div>
+                        <div><p>Create a new report entry.</p>
+
+<ul>
+<li>If the reporter is sign-in (<code>Authorization</code> header provided), the field <code>name</code> is optional.</li>
+<li>If the reporter is not sign-in, the field <code>name</code> is mandatory and the captcha data must be sent.</li>
+</ul>
+</div>
 
                         <div>
                             <ul class="nav nav-tabs" role="tablist">
@@ -374,14 +458,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtY
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="request-report-list-example-curl">
-                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ" "http://localhost:3000/reports"</code></pre>
+                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Accept: application/json" "http://localhost:3000/reports"</code></pre>
                                 </div>
                                 <div class="tab-pane" id="request-report-list-example-http">
                                     <pre><code class="hljs http">GET /reports HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
-Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ</code></pre>
+Accept: application/json</code></pre>
                                 </div>
                             </div>
                         </div>
@@ -408,14 +491,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtY
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="request-report-show-example-curl">
-                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ" "{{url}/reports/:id"</code></pre>
+                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Accept: application/json" "{{url}/reports/:id"</code></pre>
                                 </div>
                                 <div class="tab-pane" id="request-report-show-example-http">
                                     <pre><code class="hljs http">GET %7B%7Burl%7D/reports/:id HTTP/1.1
 Host: 
 Content-Type: application/json
-Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ</code></pre>
+Accept: application/json</code></pre>
                                 </div>
                             </div>
                         </div>
@@ -428,23 +510,24 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtY
                     
                     <div class="request">
 
-                        <h4 id="request-report-show-copy">
-                            Show Copy
-                            <a href="#request-report-show-copy"><i class="glyphicon glyphicon-link"></i></a>
+                        <h4 id="request-report-delete">
+                            Delete
+                            <a href="#request-report-delete"><i class="glyphicon glyphicon-link"></i></a>
                         </h4>
 
-                        <div></div>
+                        <div><p>Deletes a report. The user must be sign-in by providing the <code>Authorization</code> header.</p>
+</div>
 
                         <div>
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#request-report-show-copy-example-curl" data-toggle="tab">Curl</a></li>
-                                <li role="presentation"><a href="#request-report-show-copy-example-http" data-toggle="tab">HTTP</a></li>
+                                <li role="presentation" class="active"><a href="#request-report-delete-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-report-delete-example-http" data-toggle="tab">HTTP</a></li>
                             </ul>
                             <div class="tab-content">
-                                <div class="tab-pane active" id="request-report-show-copy-example-curl">
+                                <div class="tab-pane active" id="request-report-delete-example-curl">
                                     <pre><code class="hljs curl">curl -X DELETE -H "Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW" -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ" "http://localhost:3000/reports/:id"</code></pre>
                                 </div>
-                                <div class="tab-pane" id="request-report-show-copy-example-http">
+                                <div class="tab-pane" id="request-report-delete-example-http">
                                     <pre><code class="hljs http">DELETE /reports/:id HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
@@ -480,7 +563,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtY
                             <a href="#request-tracer-list"><i class="glyphicon glyphicon-link"></i></a>
                         </h4>
 
-                        <div></div>
+                        <div><p>List all Tracers.</p>
+</div>
 
                         <div>
                             <ul class="nav nav-tabs" role="tablist">
@@ -489,14 +573,47 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtY
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="request-tracer-list-example-curl">
-                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ" "http://localhost:3000/tracers"</code></pre>
+                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Accept: application/json" "http://localhost:3000/tracers"</code></pre>
                                 </div>
                                 <div class="tab-pane" id="request-tracer-list-example-http">
                                     <pre><code class="hljs http">GET /tracers HTTP/1.1
 Host: localhost:3000
 Content-Type: application/json
-Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ</code></pre>
+Accept: application/json</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-tracer-show">
+                            Show
+                            <a href="#request-tracer-show"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div><p>List all Tracers.</p>
+</div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-tracer-show-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-tracer-show-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-tracer-show-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Accept: application/json" "http://localhost:3000/tracers/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-tracer-show-example-http">
+                                    <pre><code class="hljs http">GET /tracers/:id HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+Accept: application/json</code></pre>
                                 </div>
                             </div>
                         </div>
@@ -678,12 +795,13 @@ Accept: application/json
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="request-user-sign-in-example-curl">
-                                    <pre><code class="hljs curl">curl -X POST -H "Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW" -H "Content-Type: application/x-www-form-urlencoded" "http://localhost:3000/users/sign_in"</code></pre>
+                                    <pre><code class="hljs curl">curl -X POST -H "Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW" -H "Content-Type: application/json" -H "Accept: application/json" "http://localhost:3000/users/sign_in"</code></pre>
                                 </div>
                                 <div class="tab-pane" id="request-user-sign-in-example-http">
                                     <pre><code class="hljs http">POST /users/sign_in HTTP/1.1
 Host: localhost:3000
-Content-Type: application/x-www-form-urlencoded</code></pre>
+Content-Type: application/json
+Accept: application/json</code></pre>
                                 </div>
                             </div>
                         </div>

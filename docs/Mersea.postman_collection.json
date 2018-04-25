@@ -6,7 +6,9 @@
 	"events": null,
 	"variables": [],
 	"order": [
-		"314116ea-1e5b-4ef3-9ff8-d796fce4a497"
+		"314116ea-1e5b-4ef3-9ff8-d796fce4a497",
+		"dd29b8a5-6a3c-4f0c-ad7b-e0543d7958ec",
+		"4bbd27b0-74ce-4cdc-b36a-b92bf0235ccf"
 	],
 	"folders_order": [
 		"6589bbf7-9a26-4ef4-9a3a-8fbd87850aa3",
@@ -39,7 +41,8 @@
 			"collection": "e63f0f2f-d0ca-460f-b0fd-8b00bfb75602",
 			"folder": null,
 			"order": [
-				"7b8aea73-f52f-43b3-9040-e02a06b597a6"
+				"7b8aea73-f52f-43b3-9040-e02a06b597a6",
+				"3ab69fee-4f53-4fa9-b75a-ab16ca4bf9cd"
 			],
 			"folders_order": []
 		},
@@ -66,9 +69,9 @@
 	"requests": [
 		{
 			"id": "01bc9369-1335-4dfc-b87d-84939c5b6e06",
-			"name": "Show Copy",
+			"name": "Delete",
 			"url": "{{url}}/reports/:id",
-			"description": "",
+			"description": "Deletes a report. The user must be sign-in by providing the `Authorization` header.",
 			"data": [],
 			"dataMode": "params",
 			"headerData": [
@@ -135,6 +138,42 @@
 			"pathVariables": {}
 		},
 		{
+			"id": "3ab69fee-4f53-4fa9-b75a-ab16ca4bf9cd",
+			"name": "Show",
+			"url": "{{url}}/tracers/:id",
+			"description": "List all Tracers.",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": ""
+				}
+			],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "475f4777-703a-4223-a9f5-3ea04398ed24",
+			"rawModeData": "{\n    \"name\": \"Fraganpp\",\n    \"latitude\": 49.8785038779473,\n    \"longitude\": -8.68209809073176,\n    \"tracer\": \"toto\",\n    \"reported_at\": \"2018-03-21\",\n    \"tracer_id\": \"7eed2f6c-a282-4837-8722-ccd0d9477264\",\n    \"quantity\": 1,\n    \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg==\"\n}",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"pathVariables": {
+				"id": ""
+			}
+		},
+		{
 			"id": "440662e9-cf73-4c42-83fc-b012546ccd7a",
 			"name": "Reset password (update)",
 			"url": "{{url}}/users/password",
@@ -178,6 +217,42 @@
 			"pathVariables": {}
 		},
 		{
+			"id": "4bbd27b0-74ce-4cdc-b36a-b92bf0235ccf",
+			"name": "Show a Page",
+			"url": "{{url}}/pages/:id",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": ""
+				}
+			],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"pathVariables": {
+				"id": ""
+			}
+		},
+		{
 			"id": "585b5638-d686-499f-b773-7c8e70153150",
 			"name": "update",
 			"url": "{{url}}/users/me",
@@ -217,7 +292,7 @@
 			"id": "7b8aea73-f52f-43b3-9040-e02a06b597a6",
 			"name": "List",
 			"url": "{{url}}/tracers",
-			"description": "",
+			"description": "List all Tracers.",
 			"data": [],
 			"dataMode": "raw",
 			"headerData": [
@@ -230,12 +305,6 @@
 					"value": "application/json",
 					"description": "",
 					"enabled": true
-				},
-				{
-					"key": "Authorization",
-					"value": "{{token}}",
-					"description": "",
-					"enabled": true
 				}
 			],
 			"method": "GET",
@@ -245,7 +314,7 @@
 			"events": [],
 			"folder": "475f4777-703a-4223-a9f5-3ea04398ed24",
 			"rawModeData": "{\n    \"name\": \"Fraganpp\",\n    \"latitude\": 49.8785038779473,\n    \"longitude\": -8.68209809073176,\n    \"tracer\": \"toto\",\n    \"reported_at\": \"2018-03-21\",\n    \"tracer_id\": \"7eed2f6c-a282-4837-8722-ccd0d9477264\",\n    \"quantity\": 1,\n    \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg==\"\n}",
-			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: {{token}}\n",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
 			"pathVariables": {}
 		},
 		{
@@ -343,12 +412,6 @@
 					"value": "application/json",
 					"description": "",
 					"enabled": true
-				},
-				{
-					"key": "Authorization",
-					"value": "{{token}}",
-					"description": "",
-					"enabled": true
 				}
 			],
 			"method": "GET",
@@ -358,7 +421,7 @@
 			"events": [],
 			"folder": "f0766955-df59-4c98-a547-a0ece30426b2",
 			"rawModeData": "{\n    \"name\": \"Fraganpp\",\n    \"latitude\": 49.8785038779473,\n    \"longitude\": -8.68209809073176,\n    \"tracer\": \"toto\",\n    \"reported_at\": \"2018-03-21\",\n    \"tracer_id\": \"7eed2f6c-a282-4837-8722-ccd0d9477264\",\n    \"quantity\": 1,\n    \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg==\"\n}",
-			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: {{token}}\n",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
 			"pathVariables": {}
 		},
 		{
@@ -371,7 +434,13 @@
 			"headerData": [
 				{
 					"key": "Content-Type",
-					"value": "application/x-www-form-urlencoded"
+					"value": "application/json"
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
 				}
 			],
 			"method": "POST",
@@ -405,7 +474,7 @@
 				}
 			],
 			"folder": "6589bbf7-9a26-4ef4-9a3a-8fbd87850aa3",
-			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
 			"pathVariables": {}
 		},
 		{
@@ -488,6 +557,35 @@
 			"pathVariables": {}
 		},
 		{
+			"id": "dd29b8a5-6a3c-4f0c-ad7b-e0543d7958ec",
+			"name": "List Pages",
+			"url": "{{url}}/pages",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
+			"pathVariables": {}
+		},
+		{
 			"id": "fbcade66-0d1e-40a0-bc47-551e9afc5287",
 			"name": "Show",
 			"url": "{{url}/reports/:id",
@@ -504,12 +602,6 @@
 					"value": "application/json",
 					"description": "",
 					"enabled": true
-				},
-				{
-					"key": "Authorization",
-					"value": "{{token}}",
-					"description": "",
-					"enabled": true
 				}
 			],
 			"method": "GET",
@@ -524,7 +616,7 @@
 			"events": [],
 			"folder": "f0766955-df59-4c98-a547-a0ece30426b2",
 			"rawModeData": "{\n    \"name\": \"Fraganpp\",\n    \"latitude\": 49.8785038779473,\n    \"longitude\": -8.68209809073176,\n    \"tracer\": \"toto\",\n    \"reported_at\": \"2018-03-21\",\n    \"tracer_id\": \"7eed2f6c-a282-4837-8722-ccd0d9477264\",\n    \"quantity\": 1,\n    \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg==\"\n}",
-			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: {{token}}\n",
+			"headers": "Content-Type: application/json\nAccept: application/json\n",
 			"pathVariables": {
 				"id": ""
 			}
@@ -533,7 +625,7 @@
 			"id": "fd56d93a-229e-4475-b870-47a66372b942",
 			"name": "Create",
 			"url": "{{url}}/reports",
-			"description": "",
+			"description": "Create a new report entry.\n\n- If the reporter is sign-in (`Authorization` header provided), the field `name` is optional.\n- If the reporter is not sign-in, the field `name` is mandatory and the captcha data must be sent.",
 			"data": [],
 			"dataMode": "raw",
 			"headerData": [
