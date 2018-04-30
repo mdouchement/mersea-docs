@@ -186,6 +186,18 @@ pre code {
                 </li>
                 
                 <li>
+                    <a href="#request-report-list-as-geojson">List as Geojson</a>
+                </li>
+                
+                <li>
+                    <a href="#request-report-show-as-geojson">Show as Geojson</a>
+                </li>
+                
+                <li>
+                    <a href="#request-report-user-s-reports">User's reports</a>
+                </li>
+                
+                <li>
                     <a href="#request-report-delete">Delete</a>
                 </li>
                 
@@ -239,6 +251,10 @@ pre code {
                 
                 <li>
                     <a href="#request-user-update-password">Update Password</a>
+                </li>
+                
+                <li>
+                    <a href="#request-user-sign-out">Sign-out</a>
                 </li>
                 
             </ul>
@@ -491,13 +507,113 @@ Accept: application/json</code></pre>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="request-report-show-example-curl">
-                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Accept: application/json" "{{url}/reports/:id"</code></pre>
+                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Accept: application/json" "http://localhost:3000/reports/:id"</code></pre>
                                 </div>
                                 <div class="tab-pane" id="request-report-show-example-http">
-                                    <pre><code class="hljs http">GET %7B%7Burl%7D/reports/:id HTTP/1.1
-Host: 
+                                    <pre><code class="hljs http">GET /reports/:id HTTP/1.1
+Host: localhost:3000
 Content-Type: application/json
 Accept: application/json</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-report-list-as-geojson">
+                            List as Geojson
+                            <a href="#request-report-list-as-geojson"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div></div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-report-list-as-geojson-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-report-list-as-geojson-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-report-list-as-geojson-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Accept: application/geo+json" "http://localhost:3000/reports"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-report-list-as-geojson-example-http">
+                                    <pre><code class="hljs http">GET /reports HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+Accept: application/geo+json</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-report-show-as-geojson">
+                            Show as Geojson
+                            <a href="#request-report-show-as-geojson"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div></div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-report-show-as-geojson-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-report-show-as-geojson-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-report-show-as-geojson-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Accept: application/geo+json" "http://localhost:3000/reports/:id"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-report-show-as-geojson-example-http">
+                                    <pre><code class="hljs http">GET /reports/:id HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+Accept: application/geo+json</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-report-user-s-reports">
+                            User's reports
+                            <a href="#request-report-user-s-reports"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div></div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-report-user-s-reports-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-report-user-s-reports-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-report-user-s-reports-example-curl">
+                                    <pre><code class="hljs curl">curl -X GET -H "Content-Type: application/json" -H "Accept: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ" "http://localhost:3000/reports?user_id={{user_id}}"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-report-user-s-reports-example-http">
+                                    <pre><code class="hljs http">GET /reports?user_id={{user_id}} HTTP/1.1
+Host: localhost:3000
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ</code></pre>
                                 </div>
                             </div>
                         </div>
@@ -922,6 +1038,40 @@ Accept: application/json
 	"password": "12345678",
 	"password_confirmation": "12345678"
 }</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+                        <hr>
+                    </div>
+                    
+                    
+                    <div class="request">
+
+                        <h4 id="request-user-sign-out">
+                            Sign-out
+                            <a href="#request-user-sign-out"><i class="glyphicon glyphicon-link"></i></a>
+                        </h4>
+
+                        <div></div>
+
+                        <div>
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#request-user-sign-out-example-curl" data-toggle="tab">Curl</a></li>
+                                <li role="presentation"><a href="#request-user-sign-out-example-http" data-toggle="tab">HTTP</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="request-user-sign-out-example-curl">
+                                    <pre><code class="hljs curl">curl -X DELETE -H "Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ" -H "Content-Type: application/json" -H "Accept: application/json" "http://localhost:3000/users/sign_out"</code></pre>
+                                </div>
+                                <div class="tab-pane" id="request-user-sign-out-example-http">
+                                    <pre><code class="hljs http">DELETE /users/sign_out HTTP/1.1
+Host: localhost:3000
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ODM4MGE1OS0yNzIxLTRjYTYtYTNiNC0yNTQ2NWRhN2M2YjkiLCJzdWIiOiIyYzQ2MmYxZi1mMjU3LTQ3ODYtYjg1OS1lMWQ5ZmMyZWY4ZmQiLCJzY3AiOiJ1c2VyIiwiYXVkIjpudWxsLCJpYXQiOjE1MjQ0ODA2MzksImV4cCI6IjE1MjUwODU0MzkifQ.DUou84wCOrfG0ihoX_siQU7By_xHKh6cVjnRaW6l4rQ
+Content-Type: application/json
+Accept: application/json</code></pre>
                                 </div>
                             </div>
                         </div>

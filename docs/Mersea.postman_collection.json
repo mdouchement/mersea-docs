@@ -28,6 +28,9 @@
 				"fd56d93a-229e-4475-b870-47a66372b942",
 				"ca4c6765-4a32-4099-9dec-2a38946a3316",
 				"fbcade66-0d1e-40a0-bc47-551e9afc5287",
+				"00ed3f58-262d-4b24-9921-29f46100ca01",
+				"63b6e397-3d99-4c43-9e01-a0a116e6fd61",
+				"c934d734-3ad0-409e-8626-0524631c54b5",
 				"01bc9369-1335-4dfc-b87d-84939c5b6e06"
 			],
 			"folders_order": []
@@ -61,12 +64,42 @@
 				"cf0f0778-7713-40c6-a628-93bf78e35f8a",
 				"bd5c3d3b-ca1a-45fe-876a-4a86fdc73687",
 				"585b5638-d686-499f-b773-7c8e70153150",
-				"d124e69e-3b8b-453c-ad7b-30beb3eef669"
+				"d124e69e-3b8b-453c-ad7b-30beb3eef669",
+				"62939a2f-7ce3-4629-97ca-7772360678a7"
 			],
 			"folders_order": []
 		}
 	],
 	"requests": [
+		{
+			"id": "00ed3f58-262d-4b24-9921-29f46100ca01",
+			"name": "List as Geojson",
+			"url": "{{url}}/reports",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "Accept",
+					"value": "application/geo+json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "f0766955-df59-4c98-a547-a0ece30426b2",
+			"rawModeData": "{\n    \"name\": \"Fraganpp\",\n    \"latitude\": 49.8785038779473,\n    \"longitude\": -8.68209809073176,\n    \"tracer\": \"toto\",\n    \"reported_at\": \"2018-03-21\",\n    \"tracer_id\": \"7eed2f6c-a282-4837-8722-ccd0d9477264\",\n    \"quantity\": 1,\n    \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg==\"\n}",
+			"headers": "Content-Type: application/json\nAccept: application/geo+json\n",
+			"pathVariables": {}
+		},
 		{
 			"id": "01bc9369-1335-4dfc-b87d-84939c5b6e06",
 			"name": "Delete",
@@ -289,6 +322,77 @@
 			"pathVariables": {}
 		},
 		{
+			"id": "62939a2f-7ce3-4629-97ca-7772360678a7",
+			"name": "Sign-out",
+			"url": "{{url}}/users/sign_out",
+			"description": "",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "6589bbf7-9a26-4ef4-9a3a-8fbd87850aa3",
+			"headers": "Authorization: {{token}}\nContent-Type: application/json\nAccept: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "63b6e397-3d99-4c43-9e01-a0a116e6fd61",
+			"name": "Show as Geojson",
+			"url": "{{url}}/reports/:id",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "Accept",
+					"value": "application/geo+json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [
+				{
+					"key": "id",
+					"value": ""
+				}
+			],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "f0766955-df59-4c98-a547-a0ece30426b2",
+			"rawModeData": "{\n    \"name\": \"Fraganpp\",\n    \"latitude\": 49.8785038779473,\n    \"longitude\": -8.68209809073176,\n    \"tracer\": \"toto\",\n    \"reported_at\": \"2018-03-21\",\n    \"tracer_id\": \"7eed2f6c-a282-4837-8722-ccd0d9477264\",\n    \"quantity\": 1,\n    \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg==\"\n}",
+			"headers": "Content-Type: application/json\nAccept: application/geo+json\n",
+			"pathVariables": {
+				"id": ""
+			}
+		},
+		{
 			"id": "7b8aea73-f52f-43b3-9040-e02a06b597a6",
 			"name": "List",
 			"url": "{{url}}/tracers",
@@ -396,6 +500,49 @@
 			"pathVariables": {}
 		},
 		{
+			"id": "c934d734-3ad0-409e-8626-0524631c54b5",
+			"name": "User's reports",
+			"url": "{{url}}/reports?user_id={{user_id}}",
+			"description": "",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				},
+				{
+					"key": "Accept",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "{{token}}",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "user_id",
+					"value": "{{user_id}}",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": "f0766955-df59-4c98-a547-a0ece30426b2",
+			"rawModeData": "{\n    \"name\": \"Fraganpp\",\n    \"latitude\": 49.8785038779473,\n    \"longitude\": -8.68209809073176,\n    \"tracer\": \"toto\",\n    \"reported_at\": \"2018-03-21\",\n    \"tracer_id\": \"7eed2f6c-a282-4837-8722-ccd0d9477264\",\n    \"quantity\": 1,\n    \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg==\"\n}",
+			"headers": "Content-Type: application/json\nAccept: application/json\nAuthorization: {{token}}\n",
+			"pathVariables": {}
+		},
+		{
 			"id": "ca4c6765-4a32-4099-9dec-2a38946a3316",
 			"name": "List",
 			"url": "{{url}}/reports",
@@ -465,10 +612,11 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "fb835dcf-81b6-47da-b11e-51594a78365f",
+						"id": "6ad764f8-42e6-4e70-8d16-edc5e81cf206",
 						"type": "text/javascript",
 						"exec": [
-							"pm.environment.set('token', pm.response.headers.get('Authorization'));"
+							"pm.environment.set('token', pm.response.headers.get('Authorization'));",
+							"pm.environment.set('user_id', pm.response.json()['id']);"
 						]
 					}
 				}
@@ -588,7 +736,7 @@
 		{
 			"id": "fbcade66-0d1e-40a0-bc47-551e9afc5287",
 			"name": "Show",
-			"url": "{{url}/reports/:id",
+			"url": "{{url}}/reports/:id",
 			"description": "",
 			"data": [],
 			"dataMode": "raw",

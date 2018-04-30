@@ -155,10 +155,11 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "fb835dcf-81b6-47da-b11e-51594a78365f",
+								"id": "6ad764f8-42e6-4e70-8d16-edc5e81cf206",
 								"type": "text/javascript",
 								"exec": [
-									"pm.environment.set('token', pm.response.headers.get('Authorization'));"
+									"pm.environment.set('token', pm.response.headers.get('Authorization'));",
+									"pm.environment.set('user_id', pm.response.json()['id']);"
 								]
 							}
 						}
@@ -302,6 +303,38 @@
 							"path": [
 								"users",
 								"update_password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign-out",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{url}}/users/sign_out",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"sign_out"
 							]
 						}
 					},
@@ -472,9 +505,9 @@
 							"raw": "{\n    \"name\": \"Fraganpp\",\n    \"latitude\": 49.8785038779473,\n    \"longitude\": -8.68209809073176,\n    \"tracer\": \"toto\",\n    \"reported_at\": \"2018-03-21\",\n    \"tracer_id\": \"7eed2f6c-a282-4837-8722-ccd0d9477264\",\n    \"quantity\": 1,\n    \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg==\"\n}"
 						},
 						"url": {
-							"raw": "{{url}/reports/:id",
+							"raw": "{{url}}/reports/:id",
 							"host": [
-								"{{url}"
+								"{{url}}"
 							],
 							"path": [
 								"reports",
@@ -484,6 +517,113 @@
 								{
 									"key": "id",
 									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List as Geojson",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/geo+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Fraganpp\",\n    \"latitude\": 49.8785038779473,\n    \"longitude\": -8.68209809073176,\n    \"tracer\": \"toto\",\n    \"reported_at\": \"2018-03-21\",\n    \"tracer_id\": \"7eed2f6c-a282-4837-8722-ccd0d9477264\",\n    \"quantity\": 1,\n    \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg==\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/reports",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"reports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show as Geojson",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/geo+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Fraganpp\",\n    \"latitude\": 49.8785038779473,\n    \"longitude\": -8.68209809073176,\n    \"tracer\": \"toto\",\n    \"reported_at\": \"2018-03-21\",\n    \"tracer_id\": \"7eed2f6c-a282-4837-8722-ccd0d9477264\",\n    \"quantity\": 1,\n    \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg==\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/reports/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"reports",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User's reports",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Fraganpp\",\n    \"latitude\": 49.8785038779473,\n    \"longitude\": -8.68209809073176,\n    \"tracer\": \"toto\",\n    \"reported_at\": \"2018-03-21\",\n    \"tracer_id\": \"7eed2f6c-a282-4837-8722-ccd0d9477264\",\n    \"quantity\": 1,\n    \"photo\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAIAAAACDbGyAAAAEElEQVR4AWMQ7d2BjCjlAwA4QCHL+OA2ggAAAABJRU5ErkJggg==\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/reports?user_id={{user_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"reports"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "{{user_id}}"
 								}
 							]
 						}
